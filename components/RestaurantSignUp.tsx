@@ -1,5 +1,7 @@
 import { ragistre } from '@/services/userServices';
 import { useRouter } from 'next/navigation';
+import { json } from 'node:stream/consumers';
+import { join } from 'path';
 import { useState } from 'react';
 
 export default function RestaurantSignUp() {
@@ -34,19 +36,25 @@ export default function RestaurantSignUp() {
 
          const result = await ragistre(formData)
          console.log(result);
-         console.log("user is ragister..")
-         setFormData({
-            email: '',
-            password: '',
-            confirmPassword: '',
-            name: '',
-            city: '',
-            address: '',
-            contact: ''
-         })
-     
+         //  setFormData({
+             //     email: '',
+             //     password: '',
+             //     confirmPassword: '',
+             //     name: '',
+             //     city: '',
+             //     address: '',
+             //     contact: ''
+             //  })
+             if(result.sucess){
+                 console.log(result)
+                 localStorage.setItem("restaurantUser",JSON.stringify(formData));
+                }
             
-        } catch (error) {
+                
+                
+                console.log("user is ragister..")
+                router.push("/restaurant/dashbord")
+            } catch (error) {
             console.log(error);
             console.log("user is not ragister")
 
