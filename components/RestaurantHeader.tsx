@@ -1,7 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
+"use client"
+
+import React, { useEffect, useState } from 'react';
+
+
+
 
 const RestaurantHeader = () => {
+
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">

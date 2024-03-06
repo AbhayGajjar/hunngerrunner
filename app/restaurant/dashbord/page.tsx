@@ -1,5 +1,8 @@
+"use client"
+
 import RestaurantHeader from '@/components/RestaurantHeader'
-import React from 'react'
+
+
 
 const RestaurantDashbord = () => {
   return (

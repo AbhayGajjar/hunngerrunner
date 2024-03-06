@@ -1,7 +1,5 @@
 import { ragistre } from '@/services/userServices';
 import { useRouter } from 'next/navigation';
-import { json } from 'node:stream/consumers';
-import { join } from 'path';
 import { useState } from 'react';
 
 export default function RestaurantSignUp() {
@@ -17,7 +15,7 @@ export default function RestaurantSignUp() {
     });
 
     // Function to handle form input changes
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
@@ -26,43 +24,39 @@ export default function RestaurantSignUp() {
     };
 
     // Function to handle form submission
-    const handleSubmit =  async (e:any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-       
-        console.log(formData);
 
-       
+        const result = await ragistre(formData);
+
+
+        console.log(result);
+        delete result.password;
+        localStorage.setItem("restaurantUser", JSON.stringify(result));
+
         try {
+            //  const result = await ragistre(formData)
+            setFormData({
+                email: '',
+                password: '',
+                confirmPassword: '',
+                name: '',
+                city: '',
+                address: '',
+                contact: ''
+            })
+            if (result.sucess) {
 
-         const result = await ragistre(formData)
-         console.log(result);
-         //  setFormData({
-             //     email: '',
-             //     password: '',
-             //     confirmPassword: '',
-             //     name: '',
-             //     city: '',
-             //     address: '',
-             //     contact: ''
-             //  })
-             if(result.sucess){
-                 console.log(result)
-                 localStorage.setItem("restaurantUser",JSON.stringify(formData));
-                }
-            
-                
-                
-                console.log("user is ragister..")
-                router.push("/restaurant/dashbord")
-            } catch (error) {
+                localStorage.setItem("restaurantUser", JSON.stringify(result));
+                console.log(localStorage.setItem("restaurantUser", JSON.stringify(result)));
+            }
+            console.log("user is ragister..")
+            router.push("/restaurant/dashbord")
+        } catch (error) {
             console.log(error);
             console.log("user is not ragister")
-
-            
         }
-        
     };
-
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
