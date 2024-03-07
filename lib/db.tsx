@@ -11,11 +11,6 @@ export const connectdb = async ()=>{
     console.log("db id connected....")
     console.log(connection)
 
-   const user =  new restaurantSchema({
-        name:"abhay"
-    })
-
-    await user.save();
     
   } catch (error) {
     console.log("db is not connected...");

@@ -16,9 +16,10 @@ const Restaurant = () => {
         login ? <RestaurantLogin/> :  <RestaurantSignUp/>
      }
      
-     <button className='text-center w-full' onClick={()=>setlogin(!login)}>{login ? "Do not have Account?" : "Already have account? LogIn"}</button>
-
+     <button className='text-center w-full hover:underline' onClick={()=>setlogin(!login)}>{login ? "Do not have Account?" : "Already have account? LogIn"}</button>
+     
      <RestaurantFooter/>
+
     </>
   )
 }

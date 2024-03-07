@@ -1,6 +1,7 @@
 import { ragistre } from '@/services/userServices';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function RestaurantSignUp() {
     const router = useRouter();
@@ -33,6 +34,7 @@ export default function RestaurantSignUp() {
         console.log(result);
         delete result.password;
         localStorage.setItem("restaurantUser", JSON.stringify(result));
+        toast.success('User is Registered')
 
         try {
             //  const result = await ragistre(formData)
@@ -50,6 +52,7 @@ export default function RestaurantSignUp() {
                 localStorage.setItem("restaurantUser", JSON.stringify(result));
                 console.log(localStorage.setItem("restaurantUser", JSON.stringify(result)));
             }
+         
             console.log("user is ragister..")
             router.push("/restaurant/dashbord")
         } catch (error) {
