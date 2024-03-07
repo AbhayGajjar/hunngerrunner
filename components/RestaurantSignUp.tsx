@@ -47,13 +47,7 @@ export default function RestaurantSignUp() {
                 address: '',
                 contact: ''
             })
-            if (result.sucess) {
-
-                localStorage.setItem("restaurantUser", JSON.stringify(result));
-                console.log(localStorage.setItem("restaurantUser", JSON.stringify(result)));
-            }
-         
-            console.log("user is ragister..")
+            
             router.push("/restaurant/dashbord")
         } catch (error) {
             console.log(error);
