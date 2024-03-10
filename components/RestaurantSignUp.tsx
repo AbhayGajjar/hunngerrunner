@@ -4,7 +4,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function RestaurantSignUp() {
-    const [error, seterror] = useState(false)
+   
 
     const router = useRouter();
     const [formData, setFormData] = useState({
