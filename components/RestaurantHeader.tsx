@@ -18,7 +18,7 @@ const RestaurantHeader = () => {
       <div className='flex gap-7'>
 
       <Link href={"/"} className='py-2 hover:-translate-y-[2px]'><li>Home</li></Link>
-      <Link href={""} className='py-2 hover:-translate-y-[2px] '><li>Feacture</li></Link>
+      <Link href={"/feacture"} className='py-2 hover:-translate-y-[2px] '><li>Feacture</li></Link>
       <Link href={""} className='py-2 hover:-translate-y-[2px]'><li>Blog</li></Link>
      
       </div>

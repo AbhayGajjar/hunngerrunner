@@ -2,10 +2,12 @@
 
 import RestaurantFooter from '@/components/RestaurantFooter';
 import RestaurantHeader from '@/components/RestaurantHeader';
-import RestaurantLogin from '@/components/RestaurantLogin';
-import RestaurantSignUp from '@/components/RestaurantSignUp';
+
+
 import React from 'react'
 import { useState } from 'react';
+import RestaurantSignUp from '../RestaurantSignUp/page';
+import RestaurantLogin from '../RestaurantLogin/page';
 
 const Restaurant = () => {
     const [login, setlogin] = useState(true)

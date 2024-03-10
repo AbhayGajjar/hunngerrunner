@@ -33,7 +33,7 @@ export async function GET(request: any) {
 
 export async function POST(request:any){
     const { name, email, password, address, confirmPassword, city, contact} = await request.json();
-    console.log({ name, email, password, address, confirmPassword, city, contact});
+    // console.log({ name, email, password, address, confirmPassword, city, contact});
 
   const users=  new restaurantSchema({
         name, email, password, address, confirmPassword, city, contact
