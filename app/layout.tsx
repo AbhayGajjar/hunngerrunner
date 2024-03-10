@@ -11,13 +11,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en" data-theme="light" suppressHydrationWarning={true}>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        
         <Toaster
           position="top-right"
           reverseOrder={false}

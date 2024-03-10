@@ -8,7 +8,7 @@ interface iformdata{
     password:string,
 }
 
-const RestaurantLogin = () => {
+const RestaurantLogin = async () => {
     const [logindata, setlogindata] = useState<iformdata>({
         email:"",
         password:"",

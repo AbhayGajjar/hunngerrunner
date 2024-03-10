@@ -9,7 +9,7 @@ import React from 'react';
 const RestaurantHeader = () => {
 
     return (
-        <div className="navbar shadow-lg">
+        <div className="navbar">
   <div className="flex-1">
   <img src="https://s.tmimgcdn.com/scr/1200x627/242400/food-delivery-custom-design-logo-template_242462-original.png" className='w-40' alt="" />
   </div>
@@ -17,7 +17,7 @@ const RestaurantHeader = () => {
     <ul className="menu menu-horizontal">
       <div className='flex gap-7'>
 
-      <Link href={"/"} className='py-2 hover:-translate-y-[2px]'><li>Home</li></Link>
+      <Link href={"/home"} className='py-2 hover:-translate-y-[2px]'><li>Home</li></Link>
       <Link href={"/feacture"} className='py-2 hover:-translate-y-[2px] '><li>Feacture</li></Link>
       <Link href={""} className='py-2 hover:-translate-y-[2px]'><li>Blog</li></Link>
      

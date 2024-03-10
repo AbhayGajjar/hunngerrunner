@@ -2,11 +2,14 @@ import { connectdb } from "@/lib/db";
 import { restaurantSchema } from "@/lib/restaurantModel";
 import { NextResponse } from "next/server";
 
+
 connectdb();
 
 
 export async function GET(request: any) {
+   
     let users = []
+    
     try {
         users = await restaurantSchema.find();
     } catch (error) {
