@@ -52,7 +52,7 @@ export default function RestaurantSignUp() {
         delete result.password;
         localStorage.setItem("restaurantUser", JSON.stringify(result));
         toast.success('User is Registered')
-        router.push("/restaurant/dashbord")
+        router.push("/RestaurantLogin")
     };
 
     const  handlereset =()=>{

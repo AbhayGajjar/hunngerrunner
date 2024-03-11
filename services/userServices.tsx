@@ -6,3 +6,10 @@ export async function ragistre (users: any){
   return result;
 
 }
+
+export async function login(loginData:any) {
+  const result = await httpAxios
+    .post("/api/Login", loginData)
+    .then((response) => response.data);
+  return result;
+}
