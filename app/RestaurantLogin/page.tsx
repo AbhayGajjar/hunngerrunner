@@ -9,6 +9,7 @@ interface iformdata{
 }
 
 const RestaurantLogin = async () => {
+    // await new Promise(resolve=>setTimeout(resolve,5000))
     const [logindata, setlogindata] = useState<iformdata>({
         email:"",
         password:"",
