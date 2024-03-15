@@ -5,7 +5,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function RestaurantSignUp() {
-   
+
 
     const router = useRouter();
     const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export default function RestaurantSignUp() {
         address: '',
         contact: ''
     });
-    
+
 
     // Function to handle form input changes
     const handleChange = (e: any) => {
@@ -38,32 +38,32 @@ export default function RestaurantSignUp() {
             toast.error("All fields are required !!");
             return;
         }
-    
+
         // Check if password and confirmPassword match
         if (formData.password !== formData.confirmPassword) {
             toast.error("Passwords do not match");
             return;
         }
 
-   
 
-          // Perform sign-up process if all the validation pass
+
+        // Perform sign-up process if all the validation pass
         const result = await ragistre(formData);
         delete result.password;
         localStorage.setItem("restaurantUser", JSON.stringify(result));
         toast.success('User is Registered')
-        router.push("/RestaurantLogin")
+        router.push("/restaurant/dashbord")
     };
 
-    const  handlereset =()=>{
+    const handlereset = () => {
         setFormData({
-            name:"",
-            address:"",
-            city:"",
-            password:"",
-            confirmPassword:"",
-            contact:"",
-            email:"",
+            name: "",
+            address: "",
+            city: "",
+            password: "",
+            confirmPassword: "",
+            contact: "",
+            email: "",
         })
     }
 
@@ -89,11 +89,11 @@ export default function RestaurantSignUp() {
                                 name="email"
                                 type="email"
                                 autoComplete="email"
-                                
+
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                
+
                             />
                         </div>
                     </div>
@@ -109,7 +109,7 @@ export default function RestaurantSignUp() {
                                 name="name"
                                 type="text"
                                 autoComplete="name"
-                              
+
                                 value={formData.name}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -146,7 +146,7 @@ export default function RestaurantSignUp() {
                                 name="confirmPassword"
                                 type="password"
                                 autoComplete="new-password"
-                                
+
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -165,7 +165,7 @@ export default function RestaurantSignUp() {
                                 name="city"
                                 type="text"
                                 autoComplete="city"
-                                
+
                                 value={formData.city}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -184,7 +184,7 @@ export default function RestaurantSignUp() {
                                 name="address"
                                 type="text"
                                 autoComplete="address"
-                                
+
                                 value={formData.address}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -203,7 +203,7 @@ export default function RestaurantSignUp() {
                                 name="contact"
                                 type="tel"
                                 autoComplete="contact"
-                                
+
                                 value={formData.contact}
                                 onChange={handleChange}
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -221,7 +221,7 @@ export default function RestaurantSignUp() {
                         </button>
 
                         <button
-                        onClick={handlereset}
+                            onClick={handlereset}
                             type='button'
                             className="flex w-full mt-3 justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >

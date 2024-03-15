@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     
     <html lang="en" data-theme="light" suppressHydrationWarning={true}>
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={`${inter.className}`}  suppressHydrationWarning={true}>
         
         <Toaster
           position="top-right"
