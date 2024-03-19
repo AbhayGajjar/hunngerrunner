@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const foodSModels = new Schema({
-    name:String,
+    foodname:String,
     price:Number,
     img_path:String,
     desc:String,

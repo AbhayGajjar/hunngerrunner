@@ -13,3 +13,8 @@ export async function login(loginData:any) {
     .then((response) => response.data);
   return result;
 }
+
+export async function addfood(){
+  const result = await httpAxios.post("/api/restaurant/foods").then((response)=>response.data)
+  return result ; 
+}
