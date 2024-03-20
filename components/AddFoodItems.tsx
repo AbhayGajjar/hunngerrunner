@@ -1,4 +1,6 @@
-import { addfood } from '@/services/userServices';
+
+
+import { registerFoods } from '@/services/FoodServices';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { json } from 'stream/consumers';
@@ -18,33 +20,38 @@ const AddFoodItems = () => {
         desc: "",
     })
 
-    
+
     const handlechange = (name: string, value: string) => {
         setitemdata({
             ...itemdata, [name]: value
         })
-        
+
     }
 
-    const handleitemsubmit = async(event:any)=>{
+    const handleitemsubmit = async (event: any) => {
 
         event.preventDefault();
         console.log(itemdata);
-       
-        const result = await addfood(itemdata);
-       await  localStorage.getItem('restaurantUser', JSON.stringify({result}));
-         toast.success('food  is Registered')
 
+        const result = await registerFoods(itemdata);
+        delete result.desc
+        localStorage.setItem("FoodItemList", JSON.stringify(result))
 
-
+        toast.success("food is added");
+        setitemdata({
+            foodname: "",
+            price: "",
+            path: "",
+            desc: "",
+        })
     }
-    
-       
+
+
 
     // useEffect(() => {
     //   console.log(itemdata);
     // }, [itemdata])
-    
+
 
 
     return (
@@ -62,7 +69,7 @@ const AddFoodItems = () => {
                     <input
                         onChange={(e) => handlechange(e.target.name, e.target.value)}
                         value={itemdata.price}
-                        type="text"
+                        type="tel"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="price"
                         placeholder="price" />
@@ -88,7 +95,7 @@ const AddFoodItems = () => {
                         className="w-full  text-center py-3 rounded bg-green text-black bg-green-500 focus:outline-none my-1"
                     >Add Item</button>
 
-                
+
 
 
                 </div>
