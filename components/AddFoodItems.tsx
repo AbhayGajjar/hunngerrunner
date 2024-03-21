@@ -20,23 +20,24 @@ const AddFoodItems = () => {
         desc: "",
     })
 
-
     const handlechange = (name: string, value: string) => {
         setitemdata({
             ...itemdata, [name]: value
         })
 
     }
-
     const handleitemsubmit = async (event: any) => {
 
         event.preventDefault();
         console.log(itemdata);
 
+
+    //add food item process/////////////////////////////////
+
+
         const result = await registerFoods(itemdata);
         delete result.desc
         localStorage.setItem("FoodItemList", JSON.stringify(result))
-
         toast.success("food is added");
         setitemdata({
             foodname: "",
