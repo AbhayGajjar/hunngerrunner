@@ -1,10 +1,11 @@
 import { httpAxios } from "@/lib/httpHelper";
+import { AxiosError } from 'axios';
 
 export async function registerFoods(users: any) {
   try {
     const result = await httpAxios.post("/api/restaurant/foods", users);
     return result.data;
-  } catch (error:any) {
+  } catch (error: any) {
     if (error.response) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx

@@ -29,31 +29,29 @@ const AddFoodItems = () => {
     const handleitemsubmit = async (event: any) => {
 
         event.preventDefault();
-        console.log(itemdata);
 
+        if (!itemdata.foodname || !itemdata.price || !itemdata.path || !itemdata.desc) {
+            toast.error("Please fill in all fields");
+            return;
+        }
+        //add food item process/////////////////////////////////
 
-    //add food item process/////////////////////////////////
-
-
-        const result = await registerFoods(itemdata);
-        delete result.desc
-        localStorage.setItem("FoodItemList", JSON.stringify(result))
-        toast.success("food is added");
-        setitemdata({
-            foodname: "",
-            price: "",
-            path: "",
-            desc: "",
-        })
+        try {
+            const result = await registerFoods(itemdata);
+            // Reset form fields
+            setitemdata({
+                foodname: "",
+                price: "",
+                path: "",
+                desc: "",
+            });
+            toast.success("Food is added");
+        } catch (error) {
+            // Handle error if API call fails
+            console.error("Error adding food item:", error);
+            toast.error("Failed to add food item");
+        }
     }
-
-
-
-    // useEffect(() => {
-    //   console.log(itemdata);
-    // }, [itemdata])
-
-
 
     return (
         <div className="bg-grey-lighter mt-10 relative flex flex-col">
